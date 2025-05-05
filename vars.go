@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func(main){
+func main(){
   var number int = 1
   var number2 uint = 2
   var number3 float32 = 3.14
