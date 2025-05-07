@@ -2,12 +2,13 @@ package main
 
 import "fmt"
 
-var globalVar ="Я глобальная переменнная!"
-func main () {
-  localVar := "а я локальная переменнная, объявлена внутри функции main()"
+// Глобальная переменная
+var globalVar = "Я глобальная переменная!"
 
-  fmt.Println (globalVar)
-  fmt.Println (localVar)
-  
+func main() {
+  // Локальная переменная
+  localVar := "а я локальная переменная, объявлена внутри функции main()"
+
+  fmt.Println(globalVar)
+  fmt.Println(localVar)
 }
-//локальная и глобальная переменные
