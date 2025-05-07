@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 const pi = 3.1415
 
@@ -10,18 +13,21 @@ func main() {
 }
 
 func printCircleArea(radius int) {
-	if radius <= 0 {
-		fmt.Println("Радиус круга не может быть отрицательным!")
+	area, err := calculateCircleArea(radius)
+	if err != nil {
+		fmt.Println(err)
 		return
 	}
 
 	fmt.Printf("Радиус круга: %d см.\n", radius)
 	fmt.Println("Формула для расчета площади круга: A=πr²")
-
-	circleArea := calculateCircleArea(radius)
-	fmt.Printf("Площадь круга: %.2f см²\n\n", circleArea)
+	fmt.Printf("Площадь круга: %.2f см²\n\n", area)
 }
 
-func calculateCircleArea(radius int) float32 {
-	return float32(radius) * float32(radius) * pi
+func calculateCircleArea(radius int) (float32, error) {
+	if radius <= 0 {
+		return 0, errors.New("Радиус круга не может быть отрицательным")
+	}
+	return float32(radius) * float32(radius) * pi, nil
 }
+
